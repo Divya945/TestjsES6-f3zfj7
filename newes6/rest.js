@@ -41,5 +41,7 @@ const combine = (...args) => {
 let res3 = combine('JavaScript script', 'Rest', 'Parameters');
 console.log('rest with arrow --- ' + res3);
 // rest with dynamic function
-//var res4 = new Function('...numbers', console.log(numbers));
-//console.log('rest with dynamic function -- ' + res4);
+
+var showNumbers = new Function('...numbers', 'console.log(numbers)');
+showNumbers(1, 2, 3);
+console.log('rest with dynamic function -- ' + showNumbers);
