@@ -46,14 +46,14 @@ console.log(
 );
 
 // indexOf() and case-sensitivity
-let str = 'JS indexOf';
-let substr = 'js';
-let index = str.indexOf(substr);
-console.log(index); // -1
-let str = 'JS indexOf';
-let substr = 'js';
-let index = str.toLocaleLowerCase().indexOf(substr.toLocaleLowerCase());
-console.log(index); // 0
+let str4 = 'JS indexOf';
+let substr1 = 'js';
+let index5 = str4.indexOf(substr1);
+console.log(index5); // -1
+let str5 = 'JS indexOf';
+let substr2 = 'js';
+let index6 = str5.toLocaleLowerCase().indexOf(substr2.toLocaleLowerCase());
+console.log(index6); // 0
 
 /*
 lastIndexOf()
@@ -70,18 +70,18 @@ lastIndexOf()
   The lastIndexOf() carries a case-sensitive search.
 */
 //Using lastIndexOf() method
-let str = 'JavaScript';
-let index = str.lastIndexOf('a');
-console.log(index);
-let str = 'JavaScript';
-let index = str.lastIndexOf('a', 2);
-console.log(index);
+let str7 = 'JavaScript';
+let index7 = str7.lastIndexOf('a');
+console.log(index7);
+let str8 = 'JavaScript';
+let index8 = str8.lastIndexOf('a', 2);
+console.log(index8);
 
 //The lastIndexOf() and case-sensitivity
-let str = 'Hello, World!';
-let substr = 'L';
-let index = str.lastIndexOf(substr);
-console.log(index); // -1
+let str9 = 'Hello, World!';
+let substr3 = 'L';
+let index9 = str9.lastIndexOf(substr3);
+console.log(index9); // -1
 /*
 includes()
   The includes() method determines whether a string contains another string:
@@ -90,13 +90,13 @@ The includes() method returns true if the searchString found in the string; othe
 */
 //includes() examples
 let email = 'admin@example.com';
-console.log(('true-----' +email.includes('@'));
+console.log('true-----' + email.includes('@'));
 
-let str = 'JavaScript String';
-console.log('true---' + str.includes('Script'));
+let str0 = 'JavaScript String';
+console.log('true---' + str0.includes('Script'));
 
-let str = 'JavaScript String';
-console.log('false include--- ' + str.includes('Script', 5));
+let str11 = 'JavaScript String';
+console.log('false include--- ' + str11.includes('Script', 5));
 
 /*
 startsWith() 
@@ -112,5 +112,3 @@ const title = 'Jack and Jill Went Up the Hill';
 console.log(title.startsWith('Jack')); // true
 console.log(title.startsWith('jack')); // false
 console.log(title.startsWith('Jill', 9)); // true
-
-
