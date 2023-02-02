@@ -112,3 +112,112 @@ const title = 'Jack and Jill Went Up the Hill';
 console.log(title.startsWith('Jack')); // true
 console.log(title.startsWith('jack')); // false
 console.log(title.startsWith('Jill', 9)); // true
+
+/*
+endsWith()
+  The endsWith() returns true if a string ends with the characters of a specified string or false otherwise.
+  String.endsWith(searchString [,length])
+  searchString is the characters to be searched for at the end of the string.
+  length is an optional parameter that determines the length of the string to search. It defaults to the length of the string
+  
+*/
+//String endsWith() method examples
+const title1 = 'Jack and Jill Went Up the Hill';
+console.log('String endsWith() method examples --' + title1.endsWith('Hill'));
+console.log('String endsWith() method examples --' + title.endsWith('hill'));
+console.log('String endsWith() ' + title1.endsWith('Up', 21));
+
+/*
+Trimming()
+
+trim()
+  trim() method to remove whitespace characters from both ends of a string.
+  The String.prototype.trim()returns a new string stripped of whitespace characters from beginning and end of a string
+  Note that the trim() method doesn’t change the original string.
+  To remove whitespace characters from the beginning or from the end of a string only, you use the trimStart() or trimEnd() method.
+
+trimStart()
+  trimStart() method to remove whitespace from the beginning of a string.
+  let newString = originalString.trimStart();
+  The trimStart() method returns a new string from the original string with the leading whitespace characters removed. The trimStart() method doesn’t change the original string.
+  The trimLeft() method is an alias of the trimStart() method.
+
+trimEnd()
+  To remove the whitespace characters from the end of a string, you use the trimEnd() method:
+  let newString = originalString.trimEnd();
+  The trimEnd() method returns a new string from an original string with the ending whitespace characters stripped. The trimEnd() method doesn’t change the original string.
+The trimRight() method is an alias of the trimEnd() method
+*/
+//JavaScript trim() example
+let strT = '  JS trim  ';
+let result = strT.trim();
+console.log('JavaScript trim() example-- ' + result);
+
+const strtrimStart = '   JavaScript   ';
+const resulttrimStart = strtrimStart.trimStart();
+console.log({ strtrimStart });
+console.log({ resulttrimStart });
+
+const strtrimEnd = '   JavaScript   ';
+const resulttrimEnd = strtrimEnd.trimEnd();
+
+console.log({ strtrimEnd });
+console.log({ resulttrimEnd });
+
+/*
+padStart()
+  The padStart() method pads a string with another string to a certain length from the start of the string and returns a resulting string that reaches a certain length.
+  String.prototype.padStart(padLength [,padString]);
+The padStart() method takes two parameters:
+
+The padLength is the length of the resulting string once it is padded. If the padLength is less than the string’s length, the string is returned as-is without padding.
+The padString is an optional argument which is used to pad the string. The default value for this parameter is ‘ ‘. If the padString is greater than padLength, the padString will be truncated and only the left-most part will be padded.
+
+padEnd()
+  the padEnd() method pads a string to a certain length with another string. However, the padEnd() method pads from the end of the string.
+  String.prototype.padEnd(padLength [,padString]);
+
+*/
+
+//padStart() examples
+let strpadStart = '1234'.padStart(8, '0');
+console.log('padStart-- ' + strpadStart); // "00001234"
+
+let strpadStart1 = 'abc'.padStart(5);
+console.log('padStart' + strpadStart1); // "  abc"
+//padEnd() examples
+let strpadEnd = 'abc'.padEnd(5);
+console.log('padEnd ' + strpadEnd); // "abc  "
+
+str = 'abc'.padEnd(5, '*');
+console.log('padEnd ' + str); // "abc**"
+str = 'abc'.padEnd(5, 'def');
+console.log('padEnd ' + str); // "abcde"
+
+/*
+  split() method
+split() method to split a string into an array of substrings.
+split([separator, [,limit]]);
+
+Use the JavaScript String split() to divide a string into an array of substrings by a separator.
+Use the second parameter (limit) to return a limited number of splits.
+*/
+//JavaScript split() examples
+let strsplit = 'JavaScript String split()';
+let substrings = strsplit.split(' ');
+console.log('strsplit-- ' + substrings);
+//Returning a limited number of substrings
+let strlimited = 'JavaScript String split()';
+let limitedsubstrings = strlimited.split(' ', 2);
+console.log('Returning a limited number of substrings ' + limitedsubstrings);
+
+//Splitting a string using a regular expression example
+let paragraphregular =
+  'Good Morning! How are you? This is John. John is my friend.';
+let sentences = paragraphregular.split(/[!,?,.]/);
+console.log('regular expression' + sentences);
+
+let paragraphregularexp =
+  'Good Morning! How are you? This is John. John is my friend.';
+let sentencesregularexp = paragraphregularexp.split(/([!,?,.])/);
+console.log('regular expression' + sentencesregularexp);
