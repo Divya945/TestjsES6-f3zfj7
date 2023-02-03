@@ -343,6 +343,12 @@ String replace() method
 String replace() method to replace a substring in a string with a new one.
 let newStr = str.replace(substr, newSubstr);
 The JavaScript String replace() method returns a new string with a substring (substr) replaced by a new one (newSubstr).replace() method doesn’t change the original string. It returns a new string.
+
+string replaceAll() method
+  replaceAll() method that replaces all occurrences of a substring with a new string.
+  The String replace() method allows you to replace the first occurrence of a substring in a string with a new one.
+  To replace all the occurrences of a substring with a new one, you can call the replace() method repeatedly or use a regular expression with a global flag (g).
+  String.prototype.replaceAll(pattern, replacement)
 */
 //String replace() examples
 let strreplace = 'JS will, JS will rock you!';
@@ -364,3 +370,39 @@ let newStr = strreplacement.replace(rereplacement, (match) => {
 });
 
 console.log('str replacement --- ' + newStr);
+
+//JavaScriptString replaceAll() example
+let strreplaceall = 'JS will, JS will, JS will rock you.';
+let newStrreplaceall = strreplaceall.replaceAll('JS', 'JavaScript');
+console.log('newStrreplaceall -- ' + newStrreplaceall);
+
+//JavaScript String replaceAll() with a callback function example
+let strcallback = 'JS will, Js will, js will rock you.';
+let pattern = /js/gi;
+
+let newstrcallback = strcallback.replaceAll(
+  pattern,
+  function (match, offset, strcallback) {
+    if (match === 'JS') return 'JavaScript';
+    if (match === 'Js') return 'Javascript';
+    if (match === 'js') return 'javascript';
+    return '';
+  }
+);
+
+console.log('str Callback ---  ' + newstrcallback);
+/*
+toUpperCase() 
+  toUpperCase() method to return a string with all the characters converted to uppercase.
+toLowerCase()
+  toLowerCase() method to return a string with all the characters converted to lowercase.
+*/
+//uppercase
+const messageuppercase = 'Hello';
+const newMessage = messageuppercase.toUpperCase();
+console.log('messageuppercase -------------' + newMessage);
+//lowercase
+const messagelowercase = 'Hi';
+const newMessaglowercase = messagelowercase.toLowerCase();
+
+console.log('newMessaglowercase ------- ' + newMessaglowercase);
