@@ -82,7 +82,7 @@ let str9 = 'Hello, World!';
 let substr3 = 'L';
 let index9 = str9.lastIndexOf(substr3);
 console.log(index9); // -1
-/*
+/* ES6
 includes()
   The includes() method determines whether a string contains another string:
   string.includes(searchString [,position])
@@ -98,7 +98,7 @@ console.log('true---' + str0.includes('Script'));
 let str11 = 'JavaScript String';
 console.log('false include--- ' + str11.includes('Script', 5));
 
-/*
+/*ES6
 startsWith() 
   The startsWith() returns true if a string starts with a substring or false otherwise.
   String.startsWith(searchString [,position])
@@ -109,11 +109,15 @@ startsWith()
 */
 //startsWith() examples
 const title = 'Jack and Jill Went Up the Hill';
-console.log(title.startsWith('Jack')); // true
-console.log(title.startsWith('jack')); // false
-console.log(title.startsWith('Jill', 9)); // true
+console.log('startsWith() examples' + title.startsWith('Jack')); // true
+console.log('startsWith() examples' + title.startsWith('jack')); // false
+console.log('startsWith() examples' + title.startsWith('Jill', 9)); // true
+let strstrartswith = 'Hello World';
 
-/*
+console.log('startsWith() examples' + strstrartswith.startsWith('Hello')); // true
+console.log('startsWith() examples' + strstrartswith.startsWith('World')); // false
+
+/* ES6
 endsWith()
   The endsWith() returns true if a string ends with the characters of a specified string or false otherwise.
   String.endsWith(searchString [,length])
@@ -210,11 +214,18 @@ The startIndex specifies the index of the first character to include in the retu
 The endIndex determines the first character to exclude from the returned substring. In other words, the returned substring doesn’t include the character at the endIndex.
 
  String slice() method
- JavaScript String slice() method to extract a substring from a string.
+ JavaScript String slice() method to extract a substring from a string. 
+ The slice() method returns a new array with a copied slice from the original array. The first optional argument is the beginning index and the second optional argument is the ending index (non-inclusive).
  slice(start, end)
-
-
-  
+  Doesn't modify the original array(immutable)
+  Returns the subset of original array
+  Used to pick the elements from array
+ 
+ splice():
+The splice() method changes the content of the array in place and can be used to add or remove items from the array. When only one argument is provided, all the items after the provided starting index are removed from the array.
+Modifies the original array(mutable)
+Returns the deleted elements as array
+Used to insert or delete elements to/from array
 
 */
 //JavaScript split() examples
@@ -295,7 +306,13 @@ console.log({ substromitted });
 //JavaScript String slice() method practical example
 let emaillocalPart = 'john@example.com';
 let localPart = emaillocalPart.slice(0, email.indexOf('@'));
-console.log(localPart);
+console.log('JavaScript String slice() method  ' + localPart);
+
+//splice()
+let numberssplice = [10, 20, 30];
+numberssplice.splice(2, 1, 40, 50); // returns removed array:[30]
+console.log(numberssplice); // Original array is mutated.
+// returns: [10, 20, 40, 50]
 /**
  * concat()
  JavaScript concat() method to concatenate strings.
@@ -406,3 +423,106 @@ const messagelowercase = 'Hi';
 const newMessaglowercase = messagelowercase.toLowerCase();
 
 console.log('newMessaglowercase ------- ' + newMessaglowercase);
+//Getting the length of the string
+let strlen = 'Good Morning!';
+console.log('str length-- ' + strlen.length); // 13
+//Accessing characters
+let strchar = 'Hello';
+console.log('str char=== ' + strchar[0]); // "H"
+let strcharlen = 'Hello';
+console.log('str char len ' + strcharlen[strcharlen.length - 1]); // "o"
+let nameconc = 'John';
+let strconc = 'Hello ' + nameconc;
+
+console.log('string concat---' + strconc); // "Hello John"
+let className = 'btn';
+className += ' btn-primary';
+className += ' none';
+
+console.log('string concate ======== ' + className);
+
+// converting values
+let statusstr = false;
+let strconv = statusstr.toString(); // "false"
+let back = Boolean(strconv); // true
+console.log('string converting ======== ' + strconv);
+console.log('string converting ======== ' + back);
+
+let resultcomp = 'a' < 'b';
+console.log('str comparing ' + resultcomp); // true
+let resultcomare = 'a' < 'B';
+console.log('str comparing ' + resultcomare); // false
+
+/*
+How do you check whether a string contains a substring?
+There are 3 fastest ways to check whether a string contains a substring or not,
+
+1. Using RegEx:
+The regular expression test() method checks if a match exists in a string. This method returns true if it finds a match, otherwise, it returns false.
+
+2. Using indexOf:
+The indexOf() method is case-sensitive and accepts two parameters. The first parameter is the substring to search for, and the second optional parameter is the index to start the search from (default index is 0).
+
+3. Using includes:
+The includes() is also case-sensitive and accepts an optional second parameter, an integer which indicates the position where to start searching for.
+*/
+let strregExp = 'JavaScript, Node.js, Express.js, React.js, MongoDB';
+let exp1 = /MongoDB/g;
+let exp2 = /Ajax/;
+console.log(
+  'check whether a string contains a substring - ' + exp1.test(strregExp)
+); // true
+console.log(
+  'check whether a string contains a substring - ' + exp2.test('' + strregExp)
+); // false
+
+let strindexOfs = 'JavaScript, Node.js, Express.js, React.js, MongoDB';
+console.log(
+  'check whether a string contains a substring strindexOf - ' +
+    strindexOfs.indexOf('MongoDB') !==
+    -1
+); // true
+console.log(
+  'check whether a string contains a substring - ' +
+    strindexOfs.indexOf('PHP') !==
+    -1
+); // false
+console.log(
+  'check whether a string contains a substring - ' +
+    strindexOfs.indexOf('Node', 5) !==
+    -1
+); // true
+
+let strincludes = 'JavaScript, Node.js, Express.js, React.js, MongoDB';
+console.log(
+  'check whether a string contains a substring - ' +
+    strincludes.includes('MongoDB')
+); // true
+console.log(
+  'check whether a string contains a substring - ' + strincludes.includes('PHP')
+); // false
+console.log(
+  'check whether a string contains a substring - ' +
+    strincludes.includes('Node', 5)
+); //true
+
+/*What is eval function in javascript?
+
+The eval() function evaluates JavaScript code represented as a string. The string can be a JavaScript expression, variable, statement, or sequence of statements.
+If the argument of eval() is not a string, eval() returns the argument unchanged
+*/
+console.log(eval('10 + 20')); // 30
+
+let x = 10;
+let y = 20;
+let z = '50';
+console.log('eval function in javascript -- ' + eval('x + y + 1')); // returns 31
+console.log('eval function in javascript -- ' + eval(z)); // returns 50
+console.log(
+  'eval function in javascript string  converting-- ' +
+    eval(new String('10 + 20'))
+); // returns a String object containing "10 + 20"
+console.log('eval function in javascript -- ' + eval('10 + 20')); // returns 30
+// work around
+let expression = new String('10 + 20');
+console.log('eval function in javascript -- ' + eval(expression.toString())); // returns 30
