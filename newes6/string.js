@@ -201,6 +201,21 @@ split([separator, [,limit]]);
 
 Use the JavaScript String split() to divide a string into an array of substrings by a separator.
 Use the second parameter (limit) to return a limited number of splits.
+
+subString()
+JavaScript substring() method to extract a substring from a string.
+str.substring(startIndex [, endIndex])
+substring() method accepts two parameters: startIndexand endIndex:
+The startIndex specifies the index of the first character to include in the returned substring.
+The endIndex determines the first character to exclude from the returned substring. In other words, the returned substring doesn’t include the character at the endIndex.
+
+ String slice() method
+ JavaScript String slice() method to extract a substring from a string.
+ slice(start, end)
+
+
+  
+
 */
 //JavaScript split() examples
 let strsplit = 'JavaScript String split()';
@@ -221,3 +236,131 @@ let paragraphregularexp =
   'Good Morning! How are you? This is John. John is my friend.';
 let sentencesregularexp = paragraphregularexp.split(/([!,?,.])/);
 console.log('regular expression' + sentencesregularexp);
+
+// substring() examples
+let strsubstring = 'JavaScript Substring';
+let substring = strsubstring.substring(0, 10);
+console.log('substring -- ' + substring);
+
+//Extracting a substring to the end of the string example
+let strExtracting = 'JavaScript Substring';
+let substring1 = strExtracting.substring(11);
+console.log('Extracting a substring --- ' + substring1);
+
+//Extracting domain from the email example
+let emaildomail = 'john.doe@gmail.com';
+let domain = emaildomail.substring(emaildomail.indexOf('@') + 1);
+console.log('Extracting domain  --- ' + domain); // gmail.com
+
+//start
+const strstart = 'Hello';
+const substrstart = strstart.slice(3);
+console.log({ substrstart });
+
+//If the start is negative, the slice() method starts extraction from the str.length + start
+const strnegative = 'Hello';
+const substrnegative = strnegative.slice(-3);
+
+console.log({ substrnegative });
+//If the start is omitted, undefined, or cannot be converted to a number, the slice() method starts extraction from the beginning of the string:
+const strundefined = 'Hello';
+const substrundefined = strundefined.slice();
+console.log({ substrundefined });
+//slice()
+//If the start is greater than or equal to the length of the string, the slice() method returns an empty string.
+const strslice = 'Hello';
+const substrslice = strslice.slice(5);
+
+console.log({ substrslice });
+//The end is a zero-based index that specifies the position before the slice() method ends the extraction. The result string will not include the character at the end index.
+const strend = 'Hello';
+const substrend = strend.slice(0, 2);
+console.log({ substrend });
+//If the end is negative, the slice() method treats it as str.length + end.
+const strlegth = 'Hello';
+const substrlength = strlegth.slice(0, -2);
+
+// str.length 5
+// str.length + end = 5 + (-2) = 3
+console.log({ substrlength });
+//If the end is greater than the length of the string, the slice() method extracts to the end of the string.
+const strgratter = 'Hello';
+const substrgratter = strgratter.slice(2, 6);
+console.log({ substrgratter });
+//If the end is omitted, undefined, or cannot be converted to a number, the slice() method also extracts to the end of the string.
+const stromitted = 'Hello';
+const substromitted = stromitted.slice(3);
+console.log({ substromitted });
+
+//JavaScript String slice() method practical example
+let emaillocalPart = 'john@example.com';
+let localPart = emaillocalPart.slice(0, email.indexOf('@'));
+console.log(localPart);
+/**
+ * concat()
+ JavaScript concat() method to concatenate strings.
+ This method accepts a list of strings and returns a new string that contains the combined strings:
+ string.concat(str1, [...strN]);
+
+ Template Literals------->
+ Here we will learn about JavaScript template literal, which allows you to work with a string template more easily.
+ In ES6, you create a template literal by wrapping your text in backticks (`) 
+ let simple = `This is a template literal`;
+
+ A multiline string: a string that can span multiple lines.
+ String formatting: the ability to substitute part of the string for the values of variables or expressions. This feature is also called string interpolation.
+ HTML escaping: the ability to transform a string so that it is safe to include in HTML
+
+ */
+//Concatenating strings
+let greeting = 'Hi';
+let message = greeting.concat(' ', 'John');
+
+console.log(message);
+//Concatenating an array of strings
+let colorsarray = ['Blue', ' ', 'Green', ' ', 'Teal'];
+let resultarray = ''.concat(...colorsarray);
+
+console.log(resultarray);
+// Concatenating non-string arguments
+let strnonstring = ''.concat(1, 2, 3);
+console.log('strnonstring -- ' + strnonstring);
+
+//JavaScript template literals
+let strliterals = `Template literal in ES6`;
+
+console.log('strliterals ---' + strliterals); // Template literal in ES6
+console.log('strliterals ---' + strliterals.length); // 23
+console.log('strliterals ---' + typeof strliterals); // string
+//Variable and expression substitutions
+let firstName = 'John',
+  lastName = 'Doe';
+let greetingexpression = `Hi ${firstName}, ${lastName}`;
+console.log('expression ---- ' + greetingexpression); // Hi John, Doe
+
+/*
+String replace() method
+String replace() method to replace a substring in a string with a new one.
+let newStr = str.replace(substr, newSubstr);
+The JavaScript String replace() method returns a new string with a substring (substr) replaced by a new one (newSubstr).replace() method doesn’t change the original string. It returns a new string.
+*/
+//String replace() examples
+let strreplace = 'JS will, JS will rock you!';
+let newStrreplace = strreplace.replace('JS', 'JavaScript');
+console.log('replace --- ' + newStrreplace);
+
+//Using regular expressions
+let strregularexp = 'JS will, JS will rock you!';
+let newStrregularexp = strregularexp.replace(/JS/g, 'JavaScript');
+console.log('regular expression -- ' + newStrregularexp);
+
+//Using a replacement function
+let strreplacement = 'I like to eat, eat, eat apples and bananas';
+let rereplacement = /apples|bananas/gi;
+
+let newStr = strreplacement.replace(rereplacement, (match) => {
+  console.log({ match });
+  return match.toUpperCase();
+});
+
+console.log('str replacement --- ' + newStr);
